@@ -7,7 +7,7 @@ These are the same macros I worked with while at Ernst & Young. When I left that
 
 1. Enable the Developer ribbon in Excel
 	
-	-in the File tab, click options, and then click Cuztomize Ribbon
+	-in the File tab, click options, and then click Customize Ribbon
 	
 	-under Customize Ribbon, check the Developer box
 	
@@ -15,4 +15,6 @@ These are the same macros I worked with while at Ernst & Young. When I left that
 
 3. Paste the .vbs text in and assing your shortcuts as you wish!
 
-Enjoy!
+
+
+Enjoy! Please fork my repo and submit a pull request if you would like to contribute to this small project! :D
