@@ -65,3 +65,18 @@ Sub FormatDollar()
 ' Keyboard Shortcut: Ctrl+Shift+M
     Selection.NumberFormat = "$#,##0"
 End Sub
+Sub FormatPainter()
+' Keyboard Shortcut: Ctrl+Shift+P
+    Selection.PasteSpecial Paste:=xlPasteFormats
+    Application.CutCopyMode = False
+End Sub
+Sub SoftHighlight()
+' Keyboard Shortcut: Ctrl+Shift+N
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .Color = 10092543
+        .TintAndShade = 0
+        .PatternTintAndShade = 0
+    End With
+End Sub
