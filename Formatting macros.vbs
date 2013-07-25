@@ -73,3 +73,7 @@ Sub SoftHighlight()
         .PatternTintAndShade = 0
     End With
 End Sub
+Sub Autofit()
+' Keyboard Shortcut: Ctrl+Shift+I
+    ActiveCell.EntireColumn.Autofit
+End Sub
