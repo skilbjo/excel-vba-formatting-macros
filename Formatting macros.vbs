@@ -29,6 +29,7 @@ Sub Underline()
 End Sub
 Sub ClearFormatting()
 ' Keyboard Shortcut: Ctrl+Shift+Q
+    Selection.WrapText = False
     With Selection.Interior
         .Pattern = xlNone
         .TintAndShade = 0
@@ -37,10 +38,10 @@ Sub ClearFormatting()
     With Selection.Font
         .ColorIndex = xlAutomatic
         .TintAndShade = 0
+        .Italic = False
+        .Bold = False
+        .Underline = False
     End With
-    Selection.Font.Italic = False
-    Selection.Font.Bold = False
-    Selection.Font.Underline = False
     Selection.Borders(xlDiagonalDown).LineStyle = xlNone
     Selection.Borders(xlDiagonalUp).LineStyle = xlNone
     Selection.Borders(xlEdgeLeft).LineStyle = xlNone
@@ -75,7 +76,8 @@ Sub SoftHighlight()
 End Sub
 Sub Autofit()
 ' Keyboard Shortcut: Ctrl+Shift+I
-    ActiveCell.EntireColumn.Autofit
+    ActiveCell.CurrentRegion.EntireColumn.Autofit
+    ActiveCell.CurrentRegion.EntireRow.Autofit
 End Sub
 
 Sub RowSelect()
@@ -83,21 +85,19 @@ Sub RowSelect()
 End Sub
 
 Sub CycleThruColors()
+' Keyboard Shortcut: Ctrl+Shift+O
     Static i 'counter
     
+    'initialize the variable, since it is not yet an object, but only set to zero if it is not yet an object
     If IsNull(i) Then i = 0
     
+    'increment the counter by one for each time you run the macro
     i = i + 1
     
-    If i >= 13 Then i = 1
-    
-    With Selection.Interior
-        .PatternColorIndex = xlAutomatic
-        .Pattern = xlSolid
-        .PatternColorIndex = xlAutomatic
-        .PatternTintAndShade = 0
-    End With
+    'reset the counter
+    If i > 6 Then i = 1
 
+    'the magic happens here :)
     Select Case i
         Case 1: 'light grey
             With Selection.Interior
@@ -105,76 +105,41 @@ Sub CycleThruColors()
                 .TintAndShade = -0.149998474074526
             End With
             
-        Case 2: 'dark grey
-            With Selection.Interior
-                .ThemeColor = xlThemeColorLight1
-                .TintAndShade = 0.499984740745262
-                .PatternTintAndShade = 0
-            End With
-        Case 3: 'very dark grey
-            With Selection.Interior
-                .ThemeColor = xlThemeColorLight1
-                .TintAndShade = 0.349986266670736
-            End With
-            
-        Case 4: 'light brown
-            With Selection.Interior
-                .ThemeColor = xlThemeColorDark2
-                .TintAndShade = -9.99786370433668E-02
-            End With
-            
-        Case 5: 'medium brown
-            With Selection.Interior
-                .ThemeColor = xlThemeColorDark2
-                .TintAndShade = -0.249977111117893
-            End With
-            
-        Case 6: 'light blue
+        Case 2: 'light blue
             With Selection.Interior
                 .ThemeColor = xlThemeColorLight2
                 .TintAndShade = 0.799981688894314
             End With
             
-        Case 7: 'dark blue
-            With Selection.Interior
-                .ThemeColor = xlThemeColorLight2
-                .TintAndShade = 0.599993896298105
-            End With
-            
-        Case 8: 'light red
+        Case 3: 'light red
             With Selection.Interior
                 .ThemeColor = xlThemeColorAccent2
                 .TintAndShade = 0.599993896298105
             End With
             
-        Case 9: 'light green
+        Case 4: 'light green
             With Selection.Interior
                 .ThemeColor = xlThemeColorAccent3
                 .TintAndShade = 0.599993896298105
             End With
             
-        Case 10: 'light purple
+        Case 5: 'light purple
             With Selection.Interior
                 .ThemeColor = xlThemeColorAccent4
                 .TintAndShade = 0.599993896298105
             End With
             
-        Case 11: 'light turquoise
-            With Selection.Interior
-                .ThemeColor = xlThemeColorAccent5
-                .TintAndShade = 0.599993896298105
-            End With
-            
-        Case 12: 'no fill
+        Case 6: 'no fill
                 With Selection.Interior
                 .Pattern = xlNone
                 .TintAndShade = 0
                 .PatternTintAndShade = 0
             End With
-            
+
     End Select
         
 End Sub
+
 
 Sub CalibriFont10()
     Cells.Select
@@ -193,4 +158,3 @@ Sub CalibriFont10()
         .ThemeFont = xlThemeFontMinor
     End With
 End Sub
-
