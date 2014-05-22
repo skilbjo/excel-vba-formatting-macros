@@ -158,3 +158,10 @@ Sub CalibriFont10()
         .ThemeFont = xlThemeFontMinor
     End With
 End Sub
+
+Sub FormatColumnWidth()
+' Keyboard Shortcut: Ctrl+Shift+G
+    Cells.Select
+    Selection.ColumnWidth = 10.5
+End Sub
+
