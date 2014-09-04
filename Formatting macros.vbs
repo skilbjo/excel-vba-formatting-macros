@@ -1,3 +1,5 @@
+' I would like to participate! Perhaps we can create a formatting tool which exceeds EY ;)
+
 Sub Right()
 ' Keyboard Shortcut: Ctrl+Shift+R
     With Selection
