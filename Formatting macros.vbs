@@ -1,26 +1,26 @@
 ' I would like to participate! Perhaps we can create a formatting tool which exceeds EY ;)
-
-Sub Right()
+Option Explicit
+Public Sub Right()
 ' Keyboard Shortcut: Ctrl+Shift+R
     With Selection
         .HorizontalAlignment = xlRight
     End With
 End Sub
-Sub Left()
+Public Sub Left()
 ' Keyboard Shortcut: Ctrl+Shift+L
     With Selection
         .HorizontalAlignment = xlLeft
     End With
 End Sub
-Sub BoldRed()
+Public Sub BoldRed()
 ' Keyboard Shortcut: Ctrl+Shift+T
     Selection.Font.Bold = True
     With Selection.Font
-        .Color = -16776961
+        .Color = RGB(255, 0, 0)
         .TintAndShade = 0
     End With
 End Sub
-Sub Underline()
+Public Sub Underline()
 ' Keyboard Shortcut: Ctrl+Shift+W
     With Selection.Borders(xlEdgeBottom)
         .LineStyle = xlContinuous
@@ -29,64 +29,45 @@ Sub Underline()
         .Weight = xlThin
     End With
 End Sub
-Sub ClearFormatting()
+
+Public Sub ClearFormatting()
 ' Keyboard Shortcut: Ctrl+Shift+Q
-    Selection.WrapText = False
-    With Selection.Interior
-        .Pattern = xlNone
-        .TintAndShade = 0
-        .PatternTintAndShade = 0
-    End With
-    With Selection.Font
-        .ColorIndex = xlAutomatic
-        .TintAndShade = 0
-        .Italic = False
-        .Bold = False
-        .Underline = False
-    End With
-    Selection.Borders(xlDiagonalDown).LineStyle = xlNone
-    Selection.Borders(xlDiagonalUp).LineStyle = xlNone
-    Selection.Borders(xlEdgeLeft).LineStyle = xlNone
-    Selection.Borders(xlEdgeTop).LineStyle = xlNone
-    Selection.Borders(xlEdgeBottom).LineStyle = xlNone
-    Selection.Borders(xlEdgeRight).LineStyle = xlNone
-    Selection.Borders(xlInsideVertical).LineStyle = xlNone
-    Selection.Borders(xlInsideHorizontal).LineStyle = xlNone
+    Selection.ClearFormats
 End Sub
-Sub NumberFormat()
+Public Sub NumberFormat()
 ' Keyboard Shortcut: Ctrl+Shift+J
     Selection.NumberFormat = "#,##0"
 End Sub
-Sub FormatDollar()
+Public Sub FormatDollar()
 ' Keyboard Shortcut: Ctrl+Shift+M
     Selection.NumberFormat = "$#,##0"
 End Sub
-Sub FormatPainter()
+Public Sub FormatPainter()
 ' Keyboard Shortcut: Ctrl+Shift+P
     Selection.PasteSpecial Paste:=xlPasteFormats
     Application.CutCopyMode = False
 End Sub
-Sub SoftHighlight()
+Public Sub SoftHighlight()
 ' Keyboard Shortcut: Ctrl+Shift+N
     With Selection.Interior
         .Pattern = xlSolid
         .PatternColorIndex = xlAutomatic
-        .Color = 10092543
+        .Color = RGB(255, 255, 153)
         .TintAndShade = 0
         .PatternTintAndShade = 0
     End With
 End Sub
-Sub Autofit()
+Public Sub Autofit()
 ' Keyboard Shortcut: Ctrl+Shift+I
     ActiveCell.CurrentRegion.EntireColumn.Autofit
     ActiveCell.CurrentRegion.EntireRow.Autofit
 End Sub
 
-Sub RowSelect()
+Public Sub RowSelect()
     ActiveCell.EntireRow.Select
 End Sub
 
-Sub CycleThruColors()
+Public Sub CycleThruColors()
 ' Keyboard Shortcut: Ctrl+Shift+O
     Static i 'counter
     
@@ -143,7 +124,7 @@ Sub CycleThruColors()
 End Sub
 
 
-Sub CalibriFont10()
+Public Sub CalibriFont10()
     Cells.Select
     Application.CutCopyMode = False
     With Selection.Font
@@ -161,9 +142,10 @@ Sub CalibriFont10()
     End With
 End Sub
 
-Sub FormatColumnWidth()
+Public Sub FormatColumnWidth()
 ' Keyboard Shortcut: Ctrl+Shift+G
     Cells.Select
     Selection.ColumnWidth = 10.5
 End Sub
+
 
